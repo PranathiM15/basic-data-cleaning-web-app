@@ -1,0 +1,34 @@
+CLEARCUT — BASIC DATA CLEANING WEB APP
+======================================
+
+RUN THE WEB APP (PowerShell)
+1. Extract this ZIP.
+2. Open the extracted Basic-Data-Cleaning-Web-App folder.
+3. Click the folder address bar, type powershell, and press Enter.
+4. Run:
+   py --version
+   py -m pip install -r requirements.txt
+   py app.py
+5. Open http://127.0.0.1:8000 in Chrome.
+6. Click Try sample data or upload your own CSV, then click Clean dataset.
+7. Download the cleaned CSV and audit report.
+8. Stop the app with Ctrl+C in the terminal.
+
+TERMINAL-ONLY CLEANING (NO JUPYTER)
+py clean_dataset.py data/original_student_performance.csv
+
+GITHUB
+Create an empty repository at https://github.com/new named:
+basic-data-cleaning-web-app
+Do not initialise it with a README or .gitignore. Then, in PowerShell
+inside this folder, run:
+
+git --version
+git init
+git add .
+git commit -m "Build basic data cleaning web app"
+git branch -M main
+git remote add origin https://github.com/PranathiM15/basic-data-cleaning-web-app.git
+git push -u origin main
+
+If Git is not recognised, install Git for Windows and reopen PowerShell.

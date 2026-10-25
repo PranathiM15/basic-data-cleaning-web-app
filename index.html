@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10141f" />
+  <meta name="description" content="A practical, local-first CSV data cleaning workspace powered by Python and Pandas." />
+  <title>CLEARCUT — Data Cleaning Lab</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="CLEARCUT home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>CLEARCUT</strong><small>DATA CLEANING LAB</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#workspace"><span class="nav-icon">◫</span><span>Cleaning studio</span><span class="nav-dot"></span></a>
+        <a class="nav-item" href="#preview"><span class="nav-icon">▦</span><span>Data preview</span></a>
+        <a class="nav-item" href="#quality"><span class="nav-icon">◌</span><span>Quality report</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-card"><span class="status-light"></span><div><strong>Runs on your machine</strong><small>Local session · No sign-in</small></div></div>
+        <div class="sidebar-foot">PYTHON + PANDAS <span>•</span> TASK 25</div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="workspace">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong>Basic data cleaning</strong></div>
+        <div class="topbar-right"><span class="secure-pill"><span class="tiny-lock">⌑</span> LOCAL WORKSPACE</span><span class="avatar">PM</span></div>
+      </header>
+
+      <section class="page-intro">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> TASK 25 <span class="eyebrow-separator">/</span> AI &amp; ML TRACK</div>
+          <h1>Make messy data<br /><em>make sense.</em></h1>
+          <p class="intro-copy">A practical cleaning workspace to inspect, repair, and export a dataset — with every decision recorded in an audit report.</p>
+        </div>
+        <div class="intro-stamp"><span class="stamp-stars">✳</span><strong>DATA QUALITY</strong><small>STARTS HERE</small><div class="stamp-line"></div><span class="stamp-number">25<span>/25</span></span></div>
+      </section>
+
+      <section class="upload-panel panel" aria-labelledby="upload-title">
+        <div class="panel-heading">
+          <div class="heading-group"><span class="step-number">01</span><div><h2 id="upload-title">Bring in your dataset</h2><p>Upload a CSV file or start with the included student performance sample.</p></div></div>
+          <span class="format-label">CSV <span>·</span> UP TO 5 MB</span>
+        </div>
+        <input type="file" id="file-input" accept=".csv,text/csv" hidden />
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose a CSV file or drop one here">
+          <div class="upload-glyph"><span class="upload-arrow">↑</span><span class="upload-base"></span></div>
+          <div class="drop-main"><strong>Drop your CSV here</strong><span>or <button type="button" class="text-button" id="browse-btn">browse files</button></span></div>
+          <div class="drop-meta"><span class="file-type-icon">▤</span><div><strong>Comma-separated values</strong><small>.csv files only</small></div></div>
+        </div>
+        <div class="upload-actions"><button type="button" class="button button-quiet" id="sample-btn"><span class="button-spark">✳</span> Try sample data</button><div class="selected-file" id="selected-file" aria-live="polite"><span class="file-status-dot"></span><span id="selected-file-name">No dataset selected</span></div><button type="button" class="button button-primary" id="clean-btn" disabled>Clean dataset <span class="button-arrow">↗</span></button></div>
+        <div class="workflow-note"><span class="note-icon">i</span><span>Your file is processed by the Python service running on this computer. It is not uploaded to a cloud service.</span></div>
+      </section>
+
+      <section class="results-section" id="quality">
+        <div class="section-heading"><div class="heading-group"><span class="step-number">02</span><div><h2>Quality overview</h2><p>Before-and-after signals from the cleaning run.</p></div></div><span class="run-state" id="run-state"><span></span> WAITING FOR DATA</span></div>
+        <div class="metrics-grid">
+          <article class="metric-card"><div class="metric-top"><span>ROWS RETAINED</span><span class="metric-icon icon-blue">▤</span></div><div class="metric-value" id="metric-rows">—<small> rows</small></div><div class="metric-foot"><span class="metric-marker"></span><span id="metric-rows-foot">Ready when your file is</span></div></article>
+          <article class="metric-card"><div class="metric-top"><span>MISSING CELLS</span><span class="metric-icon icon-orange">⌁</span></div><div class="metric-value" id="metric-missing">—<small> fixed</small></div><div class="metric-foot"><span class="metric-marker orange"></span><span id="metric-missing-foot">Gaps handled by rules</span></div></article>
+          <article class="metric-card"><div class="metric-top"><span>DUPLICATES REMOVED</span><span class="metric-icon icon-violet">⧉</span></div><div class="metric-value" id="metric-duplicates">—<small> rows</small></div><div class="metric-foot"><span class="metric-marker violet"></span><span>First occurrence retained</span></div></article>
+          <article class="metric-card"><div class="metric-top"><span>TYPE CORRECTIONS</span><span class="metric-icon icon-green">↔</span></div><div class="metric-value" id="metric-types">—<small> columns</small></div><div class="metric-foot"><span class="metric-marker green"></span><span id="metric-types-foot">Numbers, dates, booleans</span></div></article>
+        </div>
+      </section>
+
+      <section class="data-panels" id="preview">
+        <article class="panel preview-panel">
+          <div class="panel-heading compact"><div class="heading-group"><span class="step-number">03</span><div><h2>Clean data preview</h2><p>The first rows of your cleaned dataset.</p></div></div><span class="live-badge"><span></span> CLEAN VIEW</span></div>
+          <div class="table-wrap" id="preview-wrap"><div class="empty-state"><div class="empty-grid">▦</div><strong>Your preview will appear here</strong><span>Load a dataset to inspect the cleaned rows.</span></div></div>
+          <div class="table-footer"><span id="preview-count">No rows to show</span><span>UP TO 8 ROWS</span></div>
+        </article>
+        <article class="panel schema-panel">
+          <div class="panel-heading compact"><div class="heading-group"><span class="step-number">04</span><div><h2>Column schema</h2><p>Detected data types after cleaning.</p></div></div></div>
+          <div id="schema-list" class="schema-list"><div class="schema-empty">Column details will appear after cleaning.</div></div>
+          <div class="schema-legend"><span><i class="legend-dot number-dot"></i> Number</span><span><i class="legend-dot text-dot"></i> Text</span><span><i class="legend-dot date-dot"></i> Date / other</span></div>
+        </article>
+      </section>
+
+      <section class="panel audit-panel">
+        <div class="panel-heading compact"><div class="heading-group"><span class="step-number">05</span><div><h2>Cleaning decisions</h2><p>A transparent summary of the rules applied to this dataset.</p></div></div><span class="audit-icon">✓</span></div>
+        <div class="rule-grid">
+          <div class="rule-item"><span class="rule-check">✓</span><div><strong>Missing-value handling</strong><p>Numeric gaps use the column median; other gaps use the most common value.</p></div><span class="rule-tag">IMPUTE</span></div>
+          <div class="rule-item"><span class="rule-check">✓</span><div><strong>Duplicate removal</strong><p>Exact duplicate rows are removed after trimming whitespace.</p></div><span class="rule-tag">DEDUP</span></div>
+          <div class="rule-item"><span class="rule-check">✓</span><div><strong>Data-type correction</strong><p>Recognisable numeric, date/time, and boolean fields are converted.</p></div><span class="rule-tag">CAST</span></div>
+          <div class="rule-item"><span class="rule-check">✓</span><div><strong>Audit trail</strong><p>Counts, data-type changes, and the cleaning rules are documented.</p></div><span class="rule-tag">REPORT</span></div>
+        </div>
+        <div class="export-bar"><div class="export-copy"><span class="export-symbol">⇩</span><div><strong>Ready to take your clean data with you?</strong><small>Export the dataset and its cleaning report.</small></div></div><div class="export-buttons"><button class="button button-quiet" id="report-btn" disabled>Download audit report <span>↓</span></button><button class="button button-primary" id="download-btn" disabled>Download cleaned CSV <span>↓</span></button></div></div>
+      </section>
+      <footer class="page-footer"><span>© CLEARCUT DATA CLEANING LAB</span><span>BUILT WITH <strong>PYTHON</strong> + <strong>PANDAS</strong> <i>✳</i></span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

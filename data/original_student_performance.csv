@@ -1,0 +1,17 @@
+student_id,student_name,branch,attendance,marks,fees_paid,exam_date
+00101,Ananya,AI&ML,92,88,Yes,2026-09-01
+00102,Rahul,CSE,85,76,Yes,2026-09-01
+00103,Meera,AI&ML,,91,YES,2026-09-02
+00104,Arjun,CSE,78,not entered,No,2026-09-02
+00105,Diya,ECE,95,94,Yes,2026/09/03
+00106,Kiran,CSE,88,82,yes,2026-09-03
+00101, Ananya , AI&ML ,92,88,Yes,2026-09-01
+00108,Sanjay,ECE,76,69,No,2026-09-04
+00109,Priya,AI&ML,90,85,Yes,2026-09-04
+00110,Vikram,CSE,81,73,No,2026-09-05
+00111,Keerthi,ECE,89,97,Yes,2026-09-05
+00112,Rohit,CSE,83,,No,2026-09-06
+00113,Nisha,AI&ML,invalid,86,Yes,2026-09-06
+00114,Varun,ECE,87,79,No,2026-09-07
+00115,Imran,CSE,84,88,Yes,2026-09-08
+,,,,,,

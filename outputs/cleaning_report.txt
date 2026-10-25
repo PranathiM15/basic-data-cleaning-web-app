@@ -1,0 +1,35 @@
+CLEARCUT DATA CLEANING LAB — CLEANING AUDIT
+================================================
+Original rows: 16
+Cleaned rows: 14
+Columns: 7
+Missing cells before cleaning: 11
+Missing cells after cleaning: 0
+Duplicate rows removed: 1
+Completely empty rows removed: 1
+
+CLEANING RULES APPLIED
+1. Trimmed surrounding spaces in cell values and column names.
+2. Treated blank cells and common placeholders (NA, N/A, null, -, ?) as missing.
+3. Removed completely empty rows and duplicate rows (kept the first occurrence).
+4. Converted recognisable boolean, date/time, and numeric columns to suitable types.
+5. Filled numeric gaps with the column median; other gaps with the most common value.
+   If a column had no usable value, used Unknown (or 0 for an all-empty numeric column).
+6. Kept identifier-like columns as text to preserve leading zeroes.
+
+DATA-TYPE CORRECTIONS
+- attendance: text -> number
+- marks: text -> number
+- fees_paid: text -> boolean
+- exam_date: text -> date/time
+
+FINAL COLUMN TYPES
+- student_id: string
+- student_name: string
+- branch: string
+- attendance: float64
+- marks: float64
+- fees_paid: boolean
+- exam_date: datetime64[ns]
+
+Note: Review the cleaned file before using it for high-stakes decisions.
